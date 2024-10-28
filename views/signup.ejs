@@ -1,0 +1,257 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f0f0f0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+        }
+        .container {
+          text-align: center;
+          background-color: #fff;
+          padding: 40px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+          width: 300px;
+        }
+        h2 {
+          color: #333;
+        }
+        form {
+          display: flex;
+          flex-direction: column;
+        }
+        input {
+          padding: 10px;
+          margin: 10px 0;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+        button {
+          padding: 10px;
+          background-color: #28a745;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+        button:hover {
+          background-color: #218838;
+        }
+      </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Sign Up</h2>
+            <form action="/signup" method="post">
+                <input type="text" name="fullname" placeholder="State Your Name">
+                <input type="text" name="username"
+                    placeholder="Write The Username">
+                <input type="password" name="password"
+                    placeholder="Put The Password">
+                <input type="email" name="email"
+                    placeholder="Put The Email Address">
+                <input type="tel" name="mobileno"
+                    placeholder="Write The Mobile Number">
+                <button type="submit">Upload Details</button>
+            </form>
+        </div>
+    </body>
+</html> -->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <style>
+      /* General Body Styling */
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(45deg, #1e3c72, #2a5298);
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        animation: gradientBackground 8s ease infinite;
+      }
+
+      @keyframes gradientBackground {
+        0% {
+          background: linear-gradient(45deg, #1e3c72, #2a5298);
+        }
+        50% {
+          background: linear-gradient(45deg, #2a5298, #1e3c72);
+        }
+        100% {
+          background: linear-gradient(45deg, #1e3c72, #2a5298);
+        }
+      }
+
+      /* Form Container */
+      .container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        width: 400px;
+        text-align: center;
+        transform: translateY(100vh);
+        animation: slideUp 1s forwards;
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(100vh);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      h2 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 20px;
+        animation: fadeIn 1.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Form Inputs */
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      input {
+        padding: 12px;
+        font-size: 16px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      input:focus {
+        border-color: #1e3c72;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        outline: none;
+      }
+
+      /* Submit Button */
+      button {
+        padding: 14px;
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      button:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      /* Floating Particles */
+      .particle {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        animation: float 10s ease-in-out infinite;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+      }
+
+      .particle:nth-child(1) {
+        width: 15px;
+        height: 15px;
+        top: 10%;
+        left: 20%;
+        animation-duration: 6s;
+      }
+
+      .particle:nth-child(2) {
+        width: 25px;
+        height: 25px;
+        top: 40%;
+        left: 75%;
+        animation-duration: 8s;
+      }
+
+      .particle:nth-child(3) {
+        width: 20px;
+        height: 20px;
+        top: 70%;
+        left: 50%;
+        animation-duration: 12s;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Floating Particles for background effect -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <div class="container">
+      <h2>Sign Up</h2>
+      <form action="/signup" method="post">
+        <input type="text" name="fullname" placeholder="Full Name" required />
+        <input type="text" name="username" placeholder="Username" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="tel" name="mobileno" placeholder="Mobile Number" required />
+        <button type="submit">Register Now</button>
+      </form>
+    </div>
+  </body>
+</html>

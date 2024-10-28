@@ -1,0 +1,164 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file_upload" />
+        <button type="submit"> Upload</button>
+    </form>
+
+</body>
+
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <style>
+        /* Global Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+            font-family: 'Roboto', sans-serif;
+            position: relative; /* Required for floating dots */
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        /* Form Container */
+        .upload-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            animation: fadeInUp 1s ease-in-out;
+            position: relative;
+            width: 350px;
+            z-index: 2; /* Ensure container is above dots */
+        }
+
+        /* Form Title */
+        h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        /* File Input Styling */
+        input[type="file"] {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 1rem;
+            color: #666;
+            background-color: #f8f9fa;
+            border: 2px dashed #007bff;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            animation: fadeIn 1.4s ease-in-out;
+            transition: border 0.3s ease, background-color 0.3s ease;
+        }
+
+        input[type="file"]:hover {
+            background-color: #e9ecef;
+            border-color: #0056b3;
+        }
+
+        /* Upload Button Styling */
+        button[type="submit"] {
+            background: linear-gradient(135deg, #28a745, #218838);
+            border: none;
+            padding: 12px 30px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: background 0.4s, transform 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.6s ease-in-out;
+        }
+
+        button[type="submit"]:hover {
+            background: linear-gradient(135deg, #218838, #1e7e34);
+            transform: translateY(-5px);
+        }
+
+        /* Decorative Floating Dots */
+        .floating-dot {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(0, 123, 255, 0.5); /* Change color as needed */
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            opacity: 0.8; /* Slight transparency */
+        }
+
+        .floating-dot:nth-child(1) { top: -40px; left: 10%; animation-duration: 9s; }
+        .floating-dot:nth-child(2) { top: 80%; left: 85%; animation-duration: 12s; }
+        .floating-dot:nth-child(3) { top: 30%; left: 50%; animation-duration: 10s; }
+        .floating-dot:nth-child(4) { top: 50%; left: 5%; animation-duration: 11s; }
+        .floating-dot:nth-child(5) { top: 70%; left: 40%; animation-duration: 13s; }
+
+        /* Keyframes for Animations */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Upload Form Container -->
+    <div class="upload-container">
+        <h2>Upload Your File</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file_upload" required />
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <!-- Floating Dots Animation Background -->
+    <div class="floating-dot"></div>
+    <div class="floating-dot"></div>
+    <div class="floating-dot"></div>
+    <div class="floating-dot"></div>
+    <div class="floating-dot"></div>
+
+</body>
+
+</html>
+

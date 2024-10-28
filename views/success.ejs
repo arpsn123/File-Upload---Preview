@@ -1,0 +1,193 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p
+            style="display: flex; justify-content: center; align-items: center; color: green;">
+            Successfully Uploaded
+        </p>
+        <p
+            style="display: flex; justify-content: center; align-items: center; color: rgb(9, 0, 128); font-weight: bolder; font-style: italic ;">
+            <%- title %>
+        </p>
+
+        <form action="/upload" method="GET"
+            style="display: flex; justify-content: center; align-items: center; color: black; font-weight: bolder; font-style: italic ;">
+            <button type="submit">Upload Another File</button>
+        </form>
+    </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Success</title>
+    <style>
+        /* Global Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative; /* Required for absolute positioning of balls */
+        }
+
+        /* Main Container */
+        .container {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            animation: fadeInUp 1s ease-in-out;
+            z-index: 2; /* Ensure container is above balls */
+        }
+
+        /* Success Message */
+        .success-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #28a745;
+            animation: textSlide 2s ease forwards;
+            opacity: 0;
+        }
+
+        /* Upload Title */
+        .file-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-top: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            opacity: 0;
+            animation: fadeIn 2.5s ease 1s forwards;
+        }
+
+        /* Button Styling */
+        .upload-btn {
+            margin-top: 40px;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            color: white;
+            background: linear-gradient(135deg, #007bff, #6610f2);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease 1.5s forwards;
+            opacity: 0;
+        }
+
+        .upload-btn:hover {
+            background: linear-gradient(135deg, #6610f2, #007bff);
+            transform: translateY(-5px);
+        }
+
+        /* Bouncing Balls */
+        .ball {
+            position: absolute;
+            border-radius: 50%;
+            animation: bounce 4s infinite ease-in-out;
+            opacity: 0.8;
+        }
+
+        .ball1 {
+            width: 50px;
+            height: 50px;
+            background-color: #ff5733; /* Red */
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .ball2 {
+            width: 70px;
+            height: 70px;
+            background-color: #33c1ff; /* Blue */
+            left: 30%;
+            animation-delay: 0.5s;
+        }
+
+        .ball3 {
+            width: 60px;
+            height: 60px;
+            background-color: #8cff33; /* Green */
+            left: 50%;
+            animation-delay: 1s;
+        }
+
+        .ball4 {
+            width: 80px;
+            height: 80px;
+            background-color: #f3ea00; /* Yellow */
+            left: 70%;
+            animation-delay: 1.5s;
+        }
+
+        .ball5 {
+            width: 55px;
+            height: 55px;
+            background-color: #a700ff; /* Purple */
+            left: 90%;
+            animation-delay: 2s;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-100px);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes textSlide {
+            0% { opacity: 0; transform: translateX(-100px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <p class="success-text">Upload Successful</p>
+        <p class="file-title"><%- title %></p>
+        <form action="/upload" method="GET">
+            <button type="submit" class="upload-btn">Upload Another File</button>
+        </form>
+    </div>
+
+    <!-- Bouncing Balls -->
+    <div class="ball ball1"></div>
+    <div class="ball ball2"></div>
+    <div class="ball ball3"></div>
+    <div class="ball ball4"></div>
+    <div class="ball ball5"></div>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style="display: flex; justify-content: center; align-items: center; color: red; font-weight: bolder;">
+        Error In Uploading ! 
+        <br>
+        Please Upload Correct "File Type" and Size Should Be "Lesser" Than "3MB"
+    </p>
+    <form action="/login" method="GET"
+            style="display: flex; justify-content: center; align-items: center; color: black; font-weight: bolder; font-style: italic ;">
+            <button type="submit">Login Again</button>
+        </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <style>
+        /* Body styles */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            position: relative;
+            overflow: hidden; /* Hide overflow for animated balls */
+        }
+
+        /* Message styles */
+        p {
+            color: red;
+            font-weight: bolder;
+            text-align: center;
+            z-index: 1; /* Bring the message above the balls */
+            margin-bottom: 20px; /* Add some space below the message */
+            font-size: 1.5em; /* Increase font size for better visibility */
+        }
+
+        /* Button styles */
+        button {
+            padding: 15px 30px; /* Increased padding for a larger button */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px; /* Increase font size for better visibility */
+            margin-top: 10px; /* Space above the button */
+            transition: background-color 0.3s, transform 0.3s; /* Add smooth transition for hover effects */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover for effect */
+        }
+
+        /* Animation styles for balls */
+        .ball {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: float 4s infinite;
+            z-index: 0; /* Send the balls behind the text */
+        }
+
+        /* Keyframes for ball animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Ball sizes and colors */
+        .ball1 { width: 30px; height: 30px; background: #ff5733; }
+        .ball2 { width: 50px; height: 50px; background: #33c4ff; }
+        .ball3 { width: 40px; height: 40px; background: #8b33ff; }
+        .ball4 { width: 25px; height: 25px; background: #75ff33; }
+        .ball5 { width: 60px; height: 60px; background: #ffcc33; }
+    </style>
+</head>
+<body>
+    <!-- Error message -->
+    <p>
+        Error In Uploading! <br>
+        Please Upload Correct "File Type" and Size Should Be "Lesser" Than "3MB"
+    </p>
+    
+    <!-- Retry button -->
+    <form action="/login" method="GET">
+        <button type="submit">Login Again</button>
+    </form>
+
+    <!-- Animated balls -->
+    <div class="ball ball1" style="top: 10%; left: 20%; animation-duration: 3s;"></div>
+    <div class="ball ball2" style="top: 30%; left: 50%; animation-duration: 4s;"></div>
+    <div class="ball ball3" style="top: 60%; left: 80%; animation-duration: 2.5s;"></div>
+    <div class="ball ball4" style="top: 80%; left: 30%; animation-duration: 3.5s;"></div>
+    <div class="ball ball5" style="top: 20%; left: 70%; animation-duration: 3s;"></div>
+
+    <script>
+        // Function to animate balls randomly
+        document.querySelectorAll('.ball').forEach(ball => {
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+
+            // Randomize initial position
+            ball.style.left = `${randomX}px`;
+            ball.style.top = `${randomY}px`;
+        });
+    </script>
+</body>
+</html>
+
+
