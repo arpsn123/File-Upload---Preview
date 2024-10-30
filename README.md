@@ -44,6 +44,39 @@ This application enables candidates to:
 - **Sequelize**: Promise-based Node.js ORM for relational databases.
 - **SQLite**: Lightweight database used for storing user and file information.
 
+
+## File Structure
+file-upload-site/
+│
+├── models/
+│   ├── filedata.js        # File_Data model for storing file info
+│   └── persons.js         # Person model for storing user info
+│
+├── routes/
+│   ├── login.js           # Login routes and logic
+│   ├── signup.js          # Signup routes and logic
+│   └── verify.js          # OTP verification logic
+│
+├── services/
+│   ├── auth.js            # Session management functions
+│   ├── generate_otp.js    # Function to send OTP to users
+│   └── sharedmemory.js     # Shared memory functions for storing OTP and candidate
+│
+├── middlewares/
+│   └── restrict.js        # Middleware to restrict access to logged-in users
+│
+├── views/
+│   ├── landing.ejs        # Landing page
+│   ├── login.ejs          # Login page
+│   ├── signup.ejs         # Signup page
+│   ├── upload.ejs         # File upload page
+│   └── success.ejs        # Success page after file upload
+│
+├── main.js                # Main application file
+└── package.json           # Node.js dependencies and scripts
+
+
+
 ## Setup Instructions
 
 ### Prerequisites
