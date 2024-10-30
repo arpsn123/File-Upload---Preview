@@ -5,8 +5,13 @@ const { v4: uuidv4 } = require("uuid");
 const nodemailer = require("nodemailer");
 const credentials = require("./credentials");
 const { File_Data } = require("./models");
-const { Person } = require("./models");
-const bcrypt = require("bcrypt");
+
+
+const signuproutes = require("./routes/signup")
+
+
+
+
 const {setsession} = require("./services/auth")
 const cookieparser = require('cookie-parser')
 const restrict_to_loggedin_candidates_only = require('./middlewares/restrict')
@@ -58,43 +63,9 @@ app.get("/login", (req, res) => {
   return res.render("login");
 });
 
-app.get("/signup", (req, res) => {
-  return res.render("signup");
-});
 
-app.post("/signup", (req, res) => {
-  const { fullname, username, email, password, mobileno } = req.body;
-  try {
-    const saltrounds = 10;
-    bcrypt.hash(password, saltrounds, async (error, hashedpassword) => {
-      if (error) {
-        console.log("error generating the hashing : ", error);
-        return res.redirect("/signup");
-      }
-      console.log(
-        "hasing done correctly, the hashed password : ",
-        hashedpassword
-      );
-      try {
-        const user_reg_details = await Person.create({
-          fullname: fullname,
-          username: username,
-          email: email,
-          password: hashedpassword,
-          mobileno: mobileno,
-        });
-        console.log("Successfully Entered Registration Data in db");
-        return res.redirect("/login");
-      } catch (error) {
-        console.log("error in inserting reg. data in db : ", error);
-        return res.redirect("/signup");
-      }
-    });
-  } catch (error) {
-    console.log("error for signup or hashing the password : ", error);
-    return res.redirect("/signup");
-  }
-});
+app.use("/signup", signuproutes)
+
 
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_TRAP_HOST,
