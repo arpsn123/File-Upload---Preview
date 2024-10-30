@@ -2,16 +2,15 @@ const express = require("express");
 const path = require("path");
 const multer = require("multer");
 const { v4: uuidv4 } = require("uuid");
-const { getotp, getcandidate } = require("./services/sharedmemory");
-const credentials = require("./credentials");
 const { File_Data } = require("./models");
+const cookieparser = require("cookie-parser");
+const restrict_to_loggedin_candidates_only = require("./middlewares/restrict");
 
 const signuproutes = require("./routes/signup");
 const loginroutes = require("./routes/login");
+const verifyroutes = require("./routes/verify");
 
-const { setsession } = require("./services/auth");
-const cookieparser = require("cookie-parser");
-const restrict_to_loggedin_candidates_only = require("./middlewares/restrict");
+
 
 const port = 3000;
 const app = express();
@@ -58,6 +57,7 @@ app.get("/", (req, res) => {
 
 app.use("/signup", signuproutes);
 app.use("/login", loginroutes);
+app.use("/verify", verifyroutes);
 
 app.get("/upload", restrict_to_loggedin_candidates_only, (req, res) => {
   return res.render("upload");
@@ -78,32 +78,6 @@ app.post("/upload", upload.single("file_upload"), async (req, res) => {
   } catch (error) {
     console.error("Error:", error);
     return res.render("failed");
-  }
-});
-
-app.get("/verify", (req, res) => {
-  return res.render("verify");
-});
-
-app.post("/verify", (req, res) => {
-   
-  const {code} = req.body;
-  const otp = getotp()
-  const retriev_candidate = getcandidate()
-
-  if (code === otp) {
-    console.log("OTP Matched");
-
-    const session_id = uuidv4();
-    console.log("Session Id is generated : ", session_id);
-    setsession(session_id, retriev_candidate);
-    console.log("Session id successfully set");
-    res.cookie("session_id", session_id);
-
-    return res.redirect("/upload");
-  } else {
-    console.log("Incorrect OTP");
-    return res.redirect("/login");
   }
 });
 
