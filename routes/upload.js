@@ -19,7 +19,7 @@ router.post("/", upload.single("file_upload"), async (req, res) => {
       orig_filename: req.file.originalname,
       size: req.file.size,
     });
-    console.log("The records are:", insert_records);
+    console.log("The records are :", insert_records);
     return res.render("success", { title: req.file.originalname });
   } catch (error) {
     console.error("Error:", error);
