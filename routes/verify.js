@@ -1,6 +1,6 @@
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
-const { getotp, getcandidate } = require("../services/sharedmemory");
+const { getotp, getcandidate, getotpjob } = require("../services/sharedmemory");
 const { setsession } = require("../services/auth");
 const router = express.Router();
 
@@ -14,6 +14,11 @@ router.post("/", (req, res) => {
 
   if (code === otp) {
     console.log("OTP Matched");
+    const otpjob = getotpjob();
+    if (otpjob) {
+      console.log("Stopping The Scheduler")
+      otpjob.stop();
+    }
 
     const session_id = uuidv4();
     console.log("Session Id is generated : ", session_id);
@@ -24,7 +29,7 @@ router.post("/", (req, res) => {
     return res.redirect("/upload");
   } else {
     console.log("Incorrect OTP");
-    return res.redirect("/login");
+    return res.redirect("/verify");
   }
 });
 

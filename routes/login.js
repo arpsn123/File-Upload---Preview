@@ -3,7 +3,8 @@ const { Person } = require("../models");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const { sendOTP } = require("../services/generate_otp");
-const { setotp, setcandidate } = require("../services/sharedmemory");
+const { setotp, setcandidate, setotpjob } = require("../services/sharedmemory");
+const cron = require("node-cron");
 
 let dest_email = "";
 let retriev_candidate = "";
@@ -33,15 +34,34 @@ router.post("/", async (req, res) => {
         console.log("Password Matched");
 
         let randomstring = "";
-        randomstring = Math.random().toString(36).slice(-8);
+
         try {
+          randomstring = Math.random().toString(36).slice(-8);
           sendOTP(dest_email, randomstring);
           console.log(`OTP is Sent in ${dest_email} is : ${randomstring}`);
           setotp(randomstring);
           setcandidate(candidate);
+
+          const otpcronjob = cron.schedule("*/30 * * * * *", () => {
+            try {
+              randomstring = Math.random().toString(36).slice(-8);
+              sendOTP(dest_email, randomstring);
+              console.log(
+                `OTP is Sent Again in ${dest_email} is : ${randomstring}`
+              );
+              setotp(randomstring);
+              setotpjob(otpcronjob);
+            } catch (error) {
+              console.log("Error Generating New Otp", error);
+              console.log("Stopping the Job Scheduler");
+              otpcronjob.stop();
+              return res.redirect("login");
+            }
+          });
+
           return res.redirect("verify");
         } catch (error) {
-          console.log("Error Generating OTP", error);
+          console.log("Error Generating Any OTP", error);
           return res.redirect("login");
         }
       } else {
