@@ -2,11 +2,19 @@ const express = require("express");
 const { File_Data } = require("../models");
 const restrict_to_loggedin_candidates_only = require("../middlewares/restrict");
 const upload = require("../services/fileupload");
+const { Person } = require("../models");
 
 const router = express.Router();
 
-router.get("/", restrict_to_loggedin_candidates_only, (req, res) => {
-  return res.render("upload");
+router.get("/", restrict_to_loggedin_candidates_only, async (req, res) => {
+  try {
+    const allfiledetails = await File_Data.findAll();
+    console.log("All File Details : ", JSON.stringify(allfiledetails));
+    return res.render("upload", { allfiledetails: allfiledetails });
+  } catch (error) {
+    console.log("Error Retrieveing File Details from The DB or NO FILES");
+    return res.render("upload", { allfiledetails: [] });
+  }
 });
 
 router.post("/", upload.single("file_upload"), async (req, res) => {
@@ -26,5 +34,7 @@ router.post("/", upload.single("file_upload"), async (req, res) => {
     return res.render("failed");
   }
 });
+
+
 
 module.exports = router;
