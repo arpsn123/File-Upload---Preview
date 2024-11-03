@@ -6,6 +6,7 @@ const signuproutes = require("./routes/signup");
 const loginroutes = require("./routes/login");
 const verifyroutes = require("./routes/verify");
 const uploadroute = require("./routes/upload");
+const userdetailsroute = require("./routes/user_details")
 
 const port = 3000;
 const app = express();
@@ -24,6 +25,7 @@ app.use("/signup", signuproutes);
 app.use("/login", loginroutes);
 app.use("/verify", verifyroutes);
 app.use("/upload", uploadroute);
+app.use("/user_details", userdetailsroute)
 
 app.listen(port, () => {
   console.log(`app listening on http://localhost:${port}`);
