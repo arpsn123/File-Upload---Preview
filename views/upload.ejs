@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Upload</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>File Upload</title>
+        <style>
         /* Global Styling */
         body {
             margin: 0;
@@ -139,42 +139,47 @@
             }
         }
     </style>
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <div class="container">
-        <!-- Upload Form Container -->
-        <div class="upload-container">
-            <h2>Upload Your File</h2>
-            <form action="/upload" method="post" enctype="multipart/form-data">
-                <input type="file" name="file_upload" required />
-                <button type="submit">Upload</button>
-            </form>
-        </div>
+        <div class="container">
+            <!-- Upload Form Container -->
+            <div class="upload-container">
+                <h2>Upload Your File</h2>
+                <form action="/upload" method="post"
+                    enctype="multipart/form-data">
+                    <input type="file" name="file_upload" required />
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
 
-        <!-- Uploaded Files Container -->
-        <div class="showfilenames">
-            <h2>Uploaded Files</h2>
-            <div class="file-details">
-                <ul>
-                    <% if (allfiledetails && allfiledetails.length > 0) { %>
+            <!-- Uploaded Files Container -->
+            <div class="showfilenames">
+                <h2>Uploaded Files</h2>
+                <div class="file-details">
+                    <ul>
+                        <% if (allfiledetails && allfiledetails.length > 0) { %>
                         <% allfiledetails.forEach(i => { %>
-                            <li class="file-card">
-                                <p><strong>The File Name:</strong> <%= i.orig_filename %></p>
-                                <p><strong>The File Unique Name:</strong> <%= i.filename %></p>
-                                <p><strong>The File Size:</strong> <%= i.size %> bytes</p>
-                                <p><strong>Uploaded at:</strong> <%= i.createdAt %></p>
-                            </li>
+                        <li class="file-card">
+                            <p><strong>The File Name:</strong> <%=
+                                i.orig_filename %></p>
+                            <p><strong>The File Unique Name:</strong> <%=
+                                i.filename %></p>
+                            <p><strong>The File Size:</strong> <%= i.size %>
+                                bytes</p>
+                            <p><strong>Uploaded at:</strong> <%= i.createdAt
+                                %></p>
+                        </li>
                         <% }); %>
-                    <% } else { %>
+                        <% } else { %>
                         <p>NO Files Uploaded Yet!</p>
-                    <% } %>
-                </ul>
+                        <% } %>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
 
-</body>
+    </body>
 
 </html>

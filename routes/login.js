@@ -42,7 +42,7 @@ router.post("/", async (req, res) => {
           setotp(randomstring);
           setcandidate(candidate);
 
-          const otpcronjob = cron.schedule("*/30 * * * * *", () => {
+          const otpcronjob = cron.schedule("*/50 * * * * *", () => {
             try {
               randomstring = Math.random().toString(36).slice(-8);
               sendOTP(dest_email, randomstring);
