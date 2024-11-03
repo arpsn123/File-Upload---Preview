@@ -1,8 +1,9 @@
 const express = require("express");
 const { Person } = require("../models");
+const restrict_to_loggedin_candidates_only = require("../middlewares/restrict")
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get("/", restrict_to_loggedin_candidates_only, async (req, res) => {
   try {
     const reg_users = await Person.findAll();
     console.log("All The Users : ", JSON.stringify(reg_users));
