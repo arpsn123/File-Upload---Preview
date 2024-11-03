@@ -2,7 +2,7 @@ const express = require("express");
 const { File_Data } = require("../models");
 const restrict_to_loggedin_candidates_only = require("../middlewares/restrict");
 const upload = require("../services/fileupload");
-const { Person } = require("../models");
+
 
 const router = express.Router();
 
