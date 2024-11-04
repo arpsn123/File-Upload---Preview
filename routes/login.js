@@ -62,9 +62,7 @@ router.post("/", async (req, res) => {
             }
           });
           setotpjob(otpcronjob);
-          const redirect = req.query.redirect || "/upload";
-          console.log("now in login --> verify, redirect", redirect)
-          return res.redirect(`verify?redirect=${encodeURIComponent(redirect)}`);
+          return res.redirect("verify");
         } catch (error) {
           console.log("Error Generating Any OTP", error);
           return res.redirect("login");

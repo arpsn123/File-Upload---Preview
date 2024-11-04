@@ -26,9 +26,7 @@ router.post("/", (req, res) => {
     console.log("Session id successfully set");
     res.cookie("session_id", session_id);
 
-    const redirect = req.query.redirect || "/upload";
-    console.log("now in verify --> redirect,", redirect)
-    return res.redirect(redirect);
+    return res.redirect("/upload");
   } else {
     console.log("Incorrect OTP");
     return res.redirect("/verify");
