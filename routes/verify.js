@@ -15,8 +15,8 @@ router.post("/", (req, res) => {
   if (code === otp) {
     console.log("OTP Matched");
     const otpjob = getotpjob();
+    console.log("Stopping The Scheduler");
     if (otpjob) {
-      console.log("Stopping The Scheduler")
       otpjob.stop();
     }
 
@@ -26,7 +26,9 @@ router.post("/", (req, res) => {
     console.log("Session id successfully set");
     res.cookie("session_id", session_id);
 
-    return res.redirect("/upload");
+    const redirect = req.query.redirect || "/upload";
+    console.log("now in verify --> redirect,", redirect)
+    return res.redirect(redirect);
   } else {
     console.log("Incorrect OTP");
     return res.redirect("/verify");

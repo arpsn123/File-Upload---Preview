@@ -6,6 +6,8 @@ const { sendOTP } = require("../services/generate_otp");
 const { setotp, setcandidate, setotpjob } = require("../services/sharedmemory");
 const cron = require("node-cron");
 
+
+
 let dest_email = "";
 let retriev_candidate = "";
 
@@ -14,6 +16,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+
   const { username, password } = req.body;
 
   try {
@@ -50,7 +53,7 @@ router.post("/", async (req, res) => {
                 `OTP is Sent Again in ${dest_email} is : ${randomstring}`
               );
               setotp(randomstring);
-              setotpjob(otpcronjob);
+              
             } catch (error) {
               console.log("Error Generating New Otp", error);
               console.log("Stopping the Job Scheduler");
@@ -58,8 +61,10 @@ router.post("/", async (req, res) => {
               return res.redirect("login");
             }
           });
-
-          return res.redirect("verify");
+          setotpjob(otpcronjob);
+          const redirect = req.query.redirect || "/upload";
+          console.log("now in login --> verify, redirect", redirect)
+          return res.redirect(`verify?redirect=${encodeURIComponent(redirect)}`);
         } catch (error) {
           console.log("Error Generating Any OTP", error);
           return res.redirect("login");
