@@ -32,8 +32,8 @@
     <style>
         /* Global Styling */
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Georgia', serif;
+            background-color: #1e1e1e;
             margin: 0;
             padding: 0;
             display: flex;
@@ -41,36 +41,38 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            position: relative; /* Required for absolute positioning of balls */
+            position: relative;
+            color: #f8f8f8;
         }
 
         /* Main Container */
         .container {
-            background: white;
+            background: #2e2e2e;
             padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 10px 50px rgba(255, 215, 0, 0.4);
             text-align: center;
             position: relative;
             animation: fadeInUp 1s ease-in-out;
-            z-index: 2; /* Ensure container is above balls */
+            z-index: 2;
+            max-width: 500px;
+            width: 90%;
         }
 
         /* Success Message */
         .success-text {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: #28a745;
+            color: #ffd700;
             animation: textSlide 2s ease forwards;
             opacity: 0;
         }
 
         /* Upload Title */
         .file-title {
-            font-size: 1.8rem;
-            color: #333;
+            font-size: 1.2rem;
+            color: #f8f8f8;
             margin-top: 20px;
-            font-weight: bold;
             letter-spacing: 1px;
             opacity: 0;
             animation: fadeIn 2.5s ease 1s forwards;
@@ -78,23 +80,23 @@
 
         /* Button Styling */
         .upload-btn {
-            margin-top: 40px;
+            margin-top: 30px;
             padding: 12px 25px;
             font-size: 1.1rem;
-            color: white;
-            background: linear-gradient(135deg, #007bff, #6610f2);
+            color: #f8f8f8;
+            background: linear-gradient(135deg, #ffd700, #b8860b);
             border: none;
-            border-radius: 30px;
+            border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s, transform 0.3s;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
             animation: fadeInUp 1.5s ease 1.5s forwards;
             opacity: 0;
         }
 
         .upload-btn:hover {
-            background: linear-gradient(135deg, #6610f2, #007bff);
-            transform: translateY(-5px);
+            background: linear-gradient(135deg, #b8860b, #ffd700);
+            transform: translateY(-3px);
         }
 
         /* Bouncing Balls */
@@ -105,53 +107,15 @@
             opacity: 0.8;
         }
 
-        .ball1 {
-            width: 50px;
-            height: 50px;
-            background-color: #ff5733; /* Red */
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .ball2 {
-            width: 70px;
-            height: 70px;
-            background-color: #33c1ff; /* Blue */
-            left: 30%;
-            animation-delay: 0.5s;
-        }
-
-        .ball3 {
-            width: 60px;
-            height: 60px;
-            background-color: #8cff33; /* Green */
-            left: 50%;
-            animation-delay: 1s;
-        }
-
-        .ball4 {
-            width: 80px;
-            height: 80px;
-            background-color: #f3ea00; /* Yellow */
-            left: 70%;
-            animation-delay: 1.5s;
-        }
-
-        .ball5 {
-            width: 55px;
-            height: 55px;
-            background-color: #a700ff; /* Purple */
-            left: 90%;
-            animation-delay: 2s;
-        }
+        .ball1 { width: 15px; height: 15px; background-color: #ffd700; left: 20%; animation-delay: 0s; }
+        .ball2 { width: 25px; height: 25px; background-color: #8b4513; left: 35%; animation-delay: 0.5s; }
+        .ball3 { width: 20px; height: 20px; background-color: #c5b358; left: 50%; animation-delay: 1s; }
+        .ball4 { width: 30px; height: 30px; background-color: #daa520; left: 65%; animation-delay: 1.5s; }
+        .ball5 { width: 18px; height: 18px; background-color: #a0522d; left: 80%; animation-delay: 2s; }
 
         @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-100px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-60px); }
         }
 
         /* Animations */
@@ -191,3 +155,4 @@
 
 </body>
 </html>
+

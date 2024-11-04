@@ -13,39 +13,40 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column; /* Stack elements vertically */
+            flex-direction: column;
             height: 100vh;
-            background-color: #f3f4f6;
+            background-color: #1e1e1e;
             font-family: 'Roboto', sans-serif;
-            position: relative;
+            color: #f8f8f8;
             overflow: hidden;
         }
 
         /* Container Styling */
         .container {
             display: flex;
-            flex-direction: column; /* Ensure blocks are stacked */
-            align-items: center; /* Center the blocks */
-            gap: 30px; /* Space between the blocks */
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
             width: 100%;
+            padding: 20px;
         }
 
         /* Form Container */
         .upload-container {
-            background-color: white;
+            background-color: #2e2e2e;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
             text-align: center;
             animation: fadeInUp 1s ease-in-out;
-            width: 350px; /* Keep a consistent width */
+            width: 350px;
             z-index: 2;
         }
 
         /* Title Styling */
         h2 {
             font-size: 2rem;
-            color: #333;
+            color: #ffd700;
             margin-bottom: 20px;
             animation: fadeIn 1.2s ease-in-out;
         }
@@ -57,8 +58,8 @@
             padding: 10px;
             font-size: 1rem;
             color: #666;
-            background-color: #f8f9fa;
-            border: 2px dashed #007bff;
+            background-color: #333;
+            border: 2px dashed #ffd700;
             border-radius: 10px;
             cursor: pointer;
             width: 100%;
@@ -67,27 +68,27 @@
         }
 
         input[type="file"]:hover {
-            background-color: #e9ecef;
-            border-color: #0056b3;
+            background-color: #444;
+            border-color: #b8860b;
         }
 
         /* Upload Button Styling */
         button[type="submit"] {
-            background: linear-gradient(135deg, #28a745, #218838);
+            background: linear-gradient(135deg, #ffd700, #b8860b);
             border: none;
             padding: 12px 30px;
-            color: white;
+            color: #1e1e1e;
             font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
             border-radius: 50px;
             transition: background 0.4s, transform 0.3s ease;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
             animation: fadeInUp 1.6s ease-in-out;
         }
 
         button[type="submit"]:hover {
-            background: linear-gradient(135deg, #218838, #1e7e34);
+            background: linear-gradient(135deg, #b8860b, #ffd700);
             transform: translateY(-5px);
         }
 
@@ -96,16 +97,16 @@
             margin-top: 20px;
             max-width: 400px;
             text-align: left;
-            overflow-y: auto; /* Enable vertical scrolling */
-            max-height: 300px; /* Limit height to enable scrolling */
-            padding: 10px; /* Padding for aesthetics */
-            border: 1px solid #e0e0e0; /* Optional border for aesthetics */
-            border-radius: 10px; /* Rounded corners */
-            background-color: white; /* Background for clarity */
+            overflow-y: auto;
+            max-height: 300px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #2e2e2e;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
         }
 
         .file-card {
-            background-color: #f8f9fa;
+            background-color: #3c3c3c;
             border-radius: 10px;
             padding: 15px;
             margin: 10px 0;
@@ -115,13 +116,13 @@
 
         .file-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
         }
 
         .file-card p {
             margin: 5px 0;
-            color: #333;
-            font-size: 0.85rem; /* Smaller font size for details */
+            color: #f8f8f8;
+            font-size: 0.85rem;
         }
 
         /* Keyframes for Animations */
@@ -143,6 +144,20 @@
             100% {
                 opacity: 1;
             }
+        }
+
+        /* Show Members Button Styling */
+        .btn {
+            color: #ffd700;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: color 0.3s;
+        }
+
+        .btn:hover {
+            color: #b8860b;
         }
     </style>
 </head>

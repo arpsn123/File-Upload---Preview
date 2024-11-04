@@ -67,37 +67,40 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTP Verification</title>
     <style>
+        /* Body Styling */
         body {
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f9f9f9;
+            background-color: #1c1c1c; /* Deep charcoal background */
             margin: 0;
             overflow: hidden;
-            position: relative; /* Required for positioning the balls */
+            position: relative;
         }
 
+        /* OTP Container Styling */
         .otp-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+            background-color: rgba(255, 255, 255, 0.1); /* Slight transparency */
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            z-index: 2; /* Ensure it's on top of the balls */
-            animation: fadeIn 1s; /* Animation for appearance */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+            animation: fadeIn 1s;
         }
 
         h2 {
-            color: #333;
+            color: #d4af37; /* Gold for heading */
             margin-bottom: 20px;
             text-align: center;
         }
@@ -107,86 +110,92 @@
             height: 50px;
             text-align: center;
             font-size: 24px;
-            border: 2px solid #ccc;
+            border: 2px solid #d4af37; /* Gold border */
             border-radius: 5px;
             outline: none;
             margin-bottom: 20px;
-            transition: border-color 0.3s; /* Smooth border transition */
+            background-color: #333; /* Dark input background */
+            color: #d4af37; /* Gold text */
+            transition: border-color 0.3s;
         }
 
         .otp-input:focus {
-            border-color: #007bff; /* Highlight on focus */
+            border-color: #ffd700; /* Bright gold on focus */
         }
 
         button {
             padding: 10px 20px;
             font-size: 16px;
-            background-color: #007bff;
+            background-color: #d4af37; /* Gold button */
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-            transform: scale(1.05); /* Scale effect on hover */
+            background-color: #b8860b; /* Darker gold on hover */
+            transform: scale(1.05);
         }
 
+        /* Animation for Fade-In */
         @keyframes fadeIn {
             from {
-                opacity: 0; /* Start transparent */
-                transform: translateY(-20px); /* Slide in from above */
+                opacity: 0;
+                transform: translateY(-20px);
             }
             to {
-                opacity: 1; /* Fully visible */
-                transform: translateY(0); /* End position */
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* Ball styles */
+        /* Ball Styling */
         .ball {
             position: absolute;
             border-radius: 50%;
-            animation: bounce 2s infinite; /* Bouncing animation */
+            animation: bounce 4s infinite; /* Slower bouncing animation */
+            background-color: #555; /* Subtle gray for ball color */
         }
 
+        /* Keyframes for Bouncing Animation */
         @keyframes bounce {
             0%, 100% {
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-100px); /* Bounce height */
+                transform: translateY(-10px); /* Reduced bounce height */
             }
         }
 
-        /* Ball color and size */
+        /* Ball Color and Size */
         .ball1 {
             width: 30px;
             height: 30px;
-            background-color: #ff5733; /* Red */
+            background-color: #444; /* Deep gray */
             left: 20%;
-            animation-delay: 0s; /* First ball */
+            animation-delay: 0s;
         }
 
         .ball2 {
             width: 40px;
             height: 40px;
-            background-color: #33c1ff; /* Blue */
+            background-color: #d4af37; /* Gold */
             left: 50%;
-            animation-delay: 0.2s; /* Second ball */
+            animation-delay: 0.2s;
         }
 
         .ball3 {
             width: 50px;
             height: 50px;
-            background-color: #8cff33; /* Green */
+            background-color: #555; /* Another subtle gray */
             left: 80%;
-            animation-delay: 0.4s; /* Third ball */
+            animation-delay: 0.4s;
         }
     </style>
 </head>
+
 <body>
     <div class="otp-container">
         <h2>Enter Your 8-Digit OTP</h2>
@@ -196,9 +205,10 @@
         </form>
     </div>
 
-    <!-- Bouncing balls -->
+    <!-- Bouncing Balls -->
     <div class="ball ball1"></div>
     <div class="ball ball2"></div>
     <div class="ball ball3"></div>
 </body>
+
 </html>

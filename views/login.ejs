@@ -33,57 +33,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page with Animated Balls</title>
+    <title>Login Page</title>
     <style>
         /* Body styles */
         body {
             margin: 0;
             height: 100vh;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Georgia', serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #f0f0f0;
+            background: #1a1a1a; /* Deep charcoal background */
             overflow: hidden;
             position: relative;
+            color: #d4af37; /* Gold accents for text */
         }
 
         /* Container styling */
         .container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(34, 34, 34, 0.95); /* Slightly transparent dark container */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             text-align: center;
             z-index: 1; /* Ensure it's above the animated balls */
+            width: 300px;
         }
 
         /* Header styles */
         h3 {
-            color: #333;
+            color: #d4af37;
             margin-bottom: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
         }
 
         /* Input field styles */
         input {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #555;
             border-radius: 5px;
             outline: none;
+            background: #333;
+            color: #d4af37;
             transition: border 0.3s ease;
         }
 
         input:focus {
-            border-color: #007bff;
+            border-color: #d4af37;
         }
 
         /* Button styles */
         button {
             padding: 10px;
-            background-color: #28a745;
-            color: white;
+            background-color: #d4af37;
+            color: #1a1a1a;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -93,14 +99,14 @@
         }
 
         button:hover {
-            background-color: #218838;
+            background-color: #b58b2b;
         }
 
         /* Animation styles for balls */
         .ball {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.7;
+            opacity: 0.6;
             animation: float 4s infinite;
         }
 
@@ -110,61 +116,39 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-10px);
             }
             100% {
                 transform: translateY(0);
             }
         }
 
-        /* Animation for random positioning */
-        @keyframes move {
-            0% {
-                left: 0%;
-                top: 0%;
-            }
-            100% {
-                left: 100%;
-                top: 100%;
-            }
-        }
-
-        /* Random ball sizes */
-        .ball1 { width: 30px; height: 30px; background: #ff5733; animation-duration: 3s; }
-        .ball2 { width: 50px; height: 50px; background: #33c4ff; animation-duration: 4s; }
-        .ball3 { width: 40px; height: 40px; background: #8b33ff; animation-duration: 2.5s; }
-        .ball4 { width: 25px; height: 25px; background: #75ff33; animation-duration: 3.5s; }
-        .ball5 { width: 60px; height: 60px; background: #ffcc33; animation-duration: 3s; }
+        /* Ball colors and sizes */
+        .ball1 { width: 25px; height: 25px; background: #d4af37; animation-duration: 3s; }
+        .ball2 { width: 40px; height: 40px; background: #a18c5f; animation-duration: 4s; }
+        .ball3 { width: 30px; height: 30px; background: #8c7851; animation-duration: 2.5s; }
+        .ball4 { width: 20px; height: 20px; background: #d4af37; animation-duration: 3.5s; }
+        .ball5 { width: 50px; height: 50px; background: #a18c5f; animation-duration: 3s; }
     </style>
 </head>
 <body>
     <!-- Animated Balls -->
-    <div class="ball ball1" style="top: 10%; left: 20%;"></div>
-    <div class="ball ball2" style="top: 30%; left: 50%;"></div>
-    <div class="ball ball3" style="top: 60%; left: 80%;"></div>
-    <div class="ball ball4" style="top: 80%; left: 30%;"></div>
-    <div class="ball ball5" style="top: 20%; left: 70%;"></div>
+    <div class="ball ball1" style="top: 15%; left: 25%;"></div>
+    <div class="ball ball2" style="top: 40%; left: 60%;"></div>
+    <div class="ball ball3" style="top: 70%; left: 75%;"></div>
+    <div class="ball ball4" style="top: 80%; left: 40%;"></div>
+    <div class="ball ball5" style="top: 25%; left: 85%;"></div>
 
     <div class="container">
         <h3>Enter Your Credentials:</h3>
         <form action="/login" method="POST">
             <label for="username">Username:</label>
-            <input type="text" name="username" required placeholder="Enter your username" />
+            <input type="text" name="username" required placeholder="Username" />
             <label for="password">Password:</label>
-            <input type="password" name="password" required placeholder="Enter your password" />
+            <input type="password" name="password" required placeholder="Password" />
             <button type="submit">Submit</button>
         </form>
     </div>
-
-    <script>
-        // Function to animate balls randomly
-        document.querySelectorAll('.ball').forEach(ball => {
-            const randomX = Math.random() * window.innerWidth;
-            const randomY = Math.random() * window.innerHeight;
-
-            ball.style.left = `${randomX}px`;
-            ball.style.top = `${randomY}px`;
-        });
-    </script>
 </body>
 </html>
+

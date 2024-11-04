@@ -83,66 +83,31 @@
     <style>
       /* General Body Styling */
       body {
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(45deg, #1e3c72, #2a5298);
-        height: 100vh;
-        margin: 0;
+        font-family: 'Georgia', serif;
+        background-color: #2e2e2e;
+        color: #e0e0e0;
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100vh;
+        margin: 0;
         overflow: hidden;
-        animation: gradientBackground 8s ease infinite;
-      }
-
-      @keyframes gradientBackground {
-        0% {
-          background: linear-gradient(45deg, #1e3c72, #2a5298);
-        }
-        50% {
-          background: linear-gradient(45deg, #2a5298, #1e3c72);
-        }
-        100% {
-          background: linear-gradient(45deg, #1e3c72, #2a5298);
-        }
       }
 
       /* Form Container */
       .container {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: #333;
         padding: 40px;
         border-radius: 15px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
         width: 400px;
         text-align: center;
-        transform: translateY(100vh);
-        animation: slideUp 1s forwards;
-      }
-
-      @keyframes slideUp {
-        from {
-          transform: translateY(100vh);
-        }
-        to {
-          transform: translateY(0);
-        }
       }
 
       h2 {
         font-size: 28px;
-        color: #333;
+        color: #e1b12c;
         margin-bottom: 20px;
-        animation: fadeIn 1.5s ease-out;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
       }
 
       /* Form Inputs */
@@ -155,22 +120,25 @@
       input {
         padding: 12px;
         font-size: 16px;
-        border: 2px solid #ddd;
+        border: 1px solid #555;
         border-radius: 8px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        color: #e0e0e0;
+        background-color: #444;
+      }
+
+      input::placeholder {
+        color: #b3b3b3;
       }
 
       input:focus {
-        border-color: #1e3c72;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        border-color: #e1b12c;
         outline: none;
       }
 
       /* Submit Button */
       button {
         padding: 14px;
-        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        background: linear-gradient(90deg, #b8860b, #8b7500);
         color: white;
         border: none;
         border-radius: 8px;
@@ -181,7 +149,7 @@
       }
 
       button:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
         transform: translateY(-3px);
       }
 
@@ -192,33 +160,33 @@
       /* Floating Particles */
       .particle {
         position: absolute;
-        background-color: rgba(255, 255, 255, 0.7);
+        background-color: rgba(225, 177, 44, 0.1);
         border-radius: 50%;
-        animation: float 10s ease-in-out infinite;
-        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+        animation: float 8s ease-in-out infinite;
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
       }
 
       .particle:nth-child(1) {
-        width: 15px;
-        height: 15px;
+        width: 20px;
+        height: 20px;
         top: 10%;
-        left: 20%;
+        left: 15%;
         animation-duration: 6s;
       }
 
       .particle:nth-child(2) {
-        width: 25px;
-        height: 25px;
-        top: 40%;
-        left: 75%;
-        animation-duration: 8s;
+        width: 30px;
+        height: 30px;
+        top: 45%;
+        left: 70%;
+        animation-duration: 10s;
       }
 
       .particle:nth-child(3) {
-        width: 20px;
-        height: 20px;
-        top: 70%;
-        left: 50%;
+        width: 25px;
+        height: 25px;
+        top: 75%;
+        left: 40%;
         animation-duration: 12s;
       }
 

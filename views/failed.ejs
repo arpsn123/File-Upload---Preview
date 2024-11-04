@@ -25,7 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error Page</title>
     <style>
-        /* Body styles */
+        /* Body styling */
         body {
             margin: 0;
             height: 100vh;
@@ -33,68 +33,75 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
+            background-color: #1c1c1c; /* Deep charcoal background */
             position: relative;
-            overflow: hidden; /* Hide overflow for animated balls */
+            overflow: hidden;
+            color: #f8f3d4; /* Soft gold text color */
+            font-family: Arial, sans-serif;
         }
 
-        /* Message styles */
+        /* Error message styling */
         p {
-            color: red;
-            font-weight: bolder;
+            font-weight: bold;
             text-align: center;
-            z-index: 1; /* Bring the message above the balls */
-            margin-bottom: 20px; /* Add some space below the message */
-            font-size: 1.5em; /* Increase font size for better visibility */
+            font-size: 1.6em;
+            background-color: rgba(50, 50, 50, 0.8); /* Charcoal overlay */
+            padding: 20px 40px;
+            border-radius: 10px;
+            color: #f8f3d4; /* Soft gold color for text */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
         }
 
-        /* Button styles */
+        /* Button styling */
         button {
-            padding: 15px 30px; /* Increased padding for a larger button */
-            background-color: #007bff;
-            color: white;
+            padding: 15px 30px;
+            background-color: #b2912f; /* Gold button color */
+            color: #1c1c1c; /* Charcoal text on button */
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 18px; /* Increase font size for better visibility */
-            margin-top: 10px; /* Space above the button */
-            transition: background-color 0.3s, transform 0.3s; /* Add smooth transition for hover effects */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1;
         }
 
         button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-            transform: scale(1.05); /* Slightly enlarge on hover for effect */
+            background-color: #e3c16f; /* Lighter gold on hover */
+            transform: scale(1.05);
         }
 
-        /* Animation styles for balls */
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animation for floating balls */
         .ball {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.7;
-            animation: float 4s infinite;
-            z-index: 0; /* Send the balls behind the text */
+            opacity: 0.5;
+            background-color: #f8f3d4; /* Soft gold color for all balls */
+            animation: float 6s infinite;
+            z-index: 0;
         }
 
-        /* Keyframes for ball animation */
         @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
-        /* Ball sizes and colors */
-        .ball1 { width: 30px; height: 30px; background: #ff5733; }
-        .ball2 { width: 50px; height: 50px; background: #33c4ff; }
-        .ball3 { width: 40px; height: 40px; background: #8b33ff; }
-        .ball4 { width: 25px; height: 25px; background: #75ff33; }
-        .ball5 { width: 60px; height: 60px; background: #ffcc33; }
+        /* Ball sizes */
+        .ball1 { width: 30px; height: 30px; }
+        .ball2 { width: 20px; height: 20px; }
+        .ball3 { width: 40px; height: 40px; }
+        .ball4 { width: 25px; height: 25px; }
+        .ball5 { width: 30px; height: 30px; }
     </style>
 </head>
 <body>
@@ -103,31 +110,17 @@
         Error In Uploading! <br>
         Please Upload Correct "File Type" and Size Should Be "Lesser" Than "3MB"
     </p>
-    
+
     <!-- Retry button -->
     <form action="/login" method="GET">
         <button type="submit">Login Again</button>
     </form>
 
     <!-- Animated balls -->
-    <div class="ball ball1" style="top: 10%; left: 20%; animation-duration: 3s;"></div>
-    <div class="ball ball2" style="top: 30%; left: 50%; animation-duration: 4s;"></div>
-    <div class="ball ball3" style="top: 60%; left: 80%; animation-duration: 2.5s;"></div>
-    <div class="ball ball4" style="top: 80%; left: 30%; animation-duration: 3.5s;"></div>
-    <div class="ball ball5" style="top: 20%; left: 70%; animation-duration: 3s;"></div>
-
-    <script>
-        // Function to animate balls randomly
-        document.querySelectorAll('.ball').forEach(ball => {
-            const randomX = Math.random() * window.innerWidth;
-            const randomY = Math.random() * window.innerHeight;
-
-            // Randomize initial position
-            ball.style.left = `${randomX}px`;
-            ball.style.top = `${randomY}px`;
-        });
-    </script>
+    <div class="ball ball1" style="top: 10%; left: 20%; animation-duration: 5s;"></div>
+    <div class="ball ball2" style="top: 30%; left: 50%; animation-duration: 7s;"></div>
+    <div class="ball ball3" style="top: 60%; left: 80%; animation-duration: 6.5s;"></div>
+    <div class="ball ball4" style="top: 80%; left: 30%; animation-duration: 6s;"></div>
+    <div class="ball ball5" style="top: 20%; left: 70%; animation-duration: 5.5s;"></div>
 </body>
 </html>
-
-
