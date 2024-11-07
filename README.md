@@ -1,11 +1,17 @@
 # Candidate Authentication and File Upload System
 
-![Node.js](https://img.shields.io/badge/Node.js-v14.0%2B-green)
-![Express](https://img.shields.io/badge/Express-v4.17.1-blue)
-![Sequelize](https://img.shields.io/badge/Sequelize-v6.6.2-blue)
-![SQLite](https://img.shields.io/badge/SQLite-v3.34.1-yellowgreen)
-![Nodemailer](https://img.shields.io/badge/Nodemailer-v6.4.11-orange)
-![License](https://img.shields.io/badge/license-MIT-brightgreen)
+![GitHub Repo Stars](https://img.shields.io/github/stars/arpsn123/UploadHub?style=social)
+![GitHub Forks](https://img.shields.io/github/forks/arpsn123/UploadHub?style=social)
+![GitHub Issues](https://img.shields.io/github/issues/arpsn123/UploadHub)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/arpsn123/UploadHub)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/arpsn123/UploadHub)
+![GitHub Contributors](https://img.shields.io/github/contributors/arpsn123/UploadHub)
+![GitHub Repo Size](https://img.shields.io/github/repo-size/arpsn123/UploadHub)
+![GitHub Language Count](https://img.shields.io/github/languages/count/arpsn123/UploadHub)
+![GitHub Top Language](https://img.shields.io/github/languages/top/arpsn123/UploadHub)
+![GitHub Watchers](https://img.shields.io/github/watchers/arpsn123/UploadHub?style=social)
+![Maintenance Status](https://img.shields.io/badge/Maintenance-%20Active-green)
+
 
 ## Overview
 
