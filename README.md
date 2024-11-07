@@ -41,6 +41,13 @@ The **Candidate Authentication and File Upload System** is a robust web applicat
 - **Route Protection**: Restricts access to sensitive routes based on authentication status.
 
 ## Technologies Used
+![Node.js](https://img.shields.io/badge/Node.js-v16%2B-brightgreen)
+![Express](https://img.shields.io/badge/Express-v4.17.1-blue)
+![Sequelize](https://img.shields.io/badge/Sequelize-v6.6.5-blue)
+![SQLite](https://img.shields.io/badge/SQLite-v3.34.1-blue)
+![Multer](https://img.shields.io/badge/Multer-v1.4.2-orange)
+![Nodemailer](https://img.shields.io/badge/Nodemailer-v6.6.1-blue)
+![bcrypt](https://img.shields.io/badge/bcrypt-v5.0.1-yellow)
 
 - **Node.js**: Server-side JavaScript runtime.
 - **Express**: Web framework for building RESTful APIs.
